@@ -1,6 +1,10 @@
 package net.theelementguy.xkcdgenes;
 
+import net.theelementguy.xkcdgenes.genes.Gene;
+import net.theelementguy.xkcdgenes.genes.GeneUtils;
 import net.theelementguy.xkcdgenes.trait.Trait;
+
+import java.util.Random;
 
 public class Person {
 
@@ -16,6 +20,12 @@ public class Person {
 
 	public Trait getBloodCurdling() {
 		return bloodCurdling;
+	}
+
+	public static Person generateRandom() {
+
+		return new Person(new Trait(GeneUtils.randomGene(), GeneUtils.randomGene()));
+
 	}
 
 }

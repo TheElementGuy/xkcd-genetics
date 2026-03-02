@@ -1,5 +1,7 @@
 package net.theelementguy.xkcdgenes.genes;
 
+import java.util.Random;
+
 public class BasicGene implements Gene {
 
 	private final int value;
@@ -23,4 +25,20 @@ public class BasicGene implements Gene {
 		}
 	}
 
+	@Override
+	public String toString() {
+		return Integer.toString(value);
+	}
+
+	public static BasicGene getRandom() {
+		Random random = new Random();
+		double trait = random.nextDouble() * 4 + 10;
+		int rounded = Math.toIntExact(Math.round(trait));
+		if (rounded < 1) {
+			rounded = 1;
+		} else if (rounded > 20) {
+			rounded = 20;
+		}
+		return new BasicGene(rounded);
+	}
 }
